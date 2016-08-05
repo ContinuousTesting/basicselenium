@@ -1,23 +1,22 @@
 package com.cts.basicselenium;
 
 import static junit.framework.Assert.assertEquals;
-import static junit.framework.Assert.assertTrue;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.commons.io.FileUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class seleniumTest {
   private String baseUrl;
@@ -29,8 +28,13 @@ public class seleniumTest {
 	  
 	    
 	System.out.println("Called openBrowser-");
-	//System.setProperty("webdriver.chrome.driver", "C:\\Apps\\SeleniumWebdrivers\\chromedriver.exe");
-    driver = new ChromeDriver();
+	System.setProperty("webdriver.chrome.driver", "C:\\Apps\\SeleniumWebdrivers\\chromedriver.exe");
+	Map<String, Object> chromeOptions = new HashMap<String, Object>();
+	chromeOptions.put("binary", "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe");
+	DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+	capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
+	driver = new ChromeDriver(capabilities);
+	//driver = new ChromeDriver();
     driver.get("http://www.google.com");
     screenshotHelper = new ScreenshotHelper();
   }
