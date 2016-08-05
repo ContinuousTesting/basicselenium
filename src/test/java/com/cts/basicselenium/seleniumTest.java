@@ -26,7 +26,10 @@ public class seleniumTest {
   
   @Before
   public void openBrowser() {
-   // baseUrl = System.getProperty("webdriver.base.url");
+	  
+	    
+	System.out.println("Called openBrowser-");
+	 	System.setProperty("webdriver.chrome.driver", "C:\\Apps\\SeleniumWebdrivers\\chromedriver.exe");
     driver = new ChromeDriver();
     driver.get("http://www.google.com");
     screenshotHelper = new ScreenshotHelper();
