@@ -28,7 +28,7 @@ public class seleniumTest {
 	  
 	    
 	System.out.println("Called openBrowser-123456");
-	System.setProperty("webdriver.chrome.driver", "C:\\Apps\\SeleniumWebdrivers\\chromedriver.exe");
+	//System.setProperty("webdriver.chrome.driver", "C:\\Apps\\SeleniumWebdrivers\\chromedriver.exe");
 	/*Map<String, Object> chromeOptions = new HashMap<String, Object>();
 	chromeOptions.put("binary", "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe");
 	DesiredCapabilities capabilities = DesiredCapabilities.chrome();
