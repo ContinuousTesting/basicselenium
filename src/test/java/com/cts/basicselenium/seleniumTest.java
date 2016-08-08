@@ -4,8 +4,6 @@ import static junit.framework.Assert.assertEquals;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 import org.apache.commons.io.FileUtils;
 import org.junit.After;
@@ -15,8 +13,6 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class seleniumTest {
   private String baseUrl;
@@ -35,19 +31,25 @@ public class seleniumTest {
 	capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
 	driver = new ChromeDriver(capabilities);*/
 	driver = new ChromeDriver();
-    driver.get("http://www.google.com");
+    driver.get("http://localhost:8080/petclinic/");
     screenshotHelper = new ScreenshotHelper();
   }
   
   @After
   public void saveScreenshotAndCloseBrowser() throws IOException {
     screenshotHelper.saveScreenshot("screenshot.png");
+    try {
+		Thread.sleep(3000);
+	} catch (InterruptedException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
     driver.quit();
   }
   
   @Test
   public void pageTitleCompare() throws IOException {
-    assertEquals("The page title should equal Google at the start of the test.", "Google", driver.getTitle());
+    assertEquals("The page title should equal Google at the start of the test.", "PetClinic :: a Spring Framework demonstration", driver.getTitle());
     //WebElement searchField = driver.findElement(By.name("q"));
     
   }
