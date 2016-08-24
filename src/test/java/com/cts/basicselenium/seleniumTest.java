@@ -49,7 +49,7 @@ public class seleniumTest {
   
   @Test
   public void pageTitleCompare() throws IOException {
-    assertEquals("The page title should equal Google at the start of the test.", "PetClinic :: a Spring Framesdfwork demonstration", driver.getTitle());
+    assertEquals("The page title should equal Google at the start of the test.", "PetClinic :: a Spring Framesdsdfsdffwork demonstration", driver.getTitle());
     //WebElement searchField = driver.findElement(By.name("q"));
     
   }
